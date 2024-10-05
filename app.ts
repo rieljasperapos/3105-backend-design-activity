@@ -1,17 +1,20 @@
 import express from "express"
-import dotenv from "dotenv"
 import router from "./routes/user";
-
-dotenv.config();
+import cookieParser from "cookie-parser"
+import bodyParser from "body-parser";
+import { config } from "./util/config.util";
+import limiter from "./middlewares/rateLimiter";
 
 const app = express();
+
 app.use(express.json());
+app.use(bodyParser.json())
+app.use(cookieParser());
+app.use(limiter);
 
-const userRoute = router;
-
-app.use("/", userRoute);
-
+// Routes
+app.use("/", router);
 
 app.listen(process.env.PORT, () => {
-  console.log(`listening to port ${process.env.PORT}`);
+  console.log(`listening to port ${config.PORT}`);
 })
