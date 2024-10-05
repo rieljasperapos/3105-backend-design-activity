@@ -3,12 +3,12 @@ import * as userController from "../controllers/userController";
 import { logger } from "../middlewares/loggingMiddleware";
 import { authentication } from "../middlewares/authMiddleware"; 
 
-const router = express.Router();
+const userRouter = express.Router();
 
-router.get('/user', logger, userController.getProfile);
+userRouter.get('/user/:id', authentication, userController.getProfile);
 
-router.post('/register', logger, userController.register);
+userRouter.post('/register', logger, userController.register);
 
-router.post('/signin', authentication, userController.login);
+userRouter.post('/signin', logger, userController.login);
 
-export default router;
+export default userRouter;
