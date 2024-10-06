@@ -69,6 +69,74 @@ Registers a new user with the following required fields: `username`, `password`,
 
   ```
 
+## **API Testing with Curl**
+
+You can test the API endpoints using `curl` from the command line by following these examples:
+
+### **1. Testing the `POST /register` endpoint:**
+
+To register a new user, use the following `curl` command:
+
+```bash
+curl -X POST http://localhost:3000/register \
+-H "Content-Type: application/json" \
+-d '{"username": "johnDoe", "password": "Password123!@#", "email": "john@example.com"}'
+```
+
+- **Successful Response:**
+
+```json
+{
+    "message": "Registered Successfully",
+    "newUser": {
+        "id": 1,
+        "username": "johnDoe",
+        "email": "john@example.com",
+        "password": "$2b$10$ip7B5K71JSBxsos6TBJiI.Gqwb.k2dFcngTFhthkNgSOrXV2BzU9e"
+    }
+}
+```
+
+
+### **1. Testing the `POST /signin` endpoint:**
+
+To register a new user, use the following `curl` command:
+
+```bash
+curl -X POST http://localhost:3000/signin \
+-H "Content-Type: application/json" \
+-d '{"username": "johnDoe", "password": "Password123!@#"}'
+```
+
+- **Successful Response:**
+
+```json
+{
+    "message": "Log in successful ",
+    "token": "token-here"
+}
+```
+
+### **1. Testing the `POST /profile/:id` endpoint:**
+
+To register a new user, use the following `curl` command:
+
+```bash
+-H "Authorization: Bearer <token>"
+```
+
+- **Successful Response:**
+
+```json
+{
+    "message": "Successfully retrieved profile",
+    "profile": {
+        "id": 1,
+        "username": "elo",
+        "email": "john@mail.com",
+    }
+}
+```
 
 ## Installation
 
