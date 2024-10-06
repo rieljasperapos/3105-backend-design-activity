@@ -27,7 +27,7 @@ COOKIE=your_cookie_name
 |--------|-------------|------------------------------|
 | POST   | `/register` | Registers a new user         |
 | POST   | `/login`    | Logs in and returns a JWT    |
-| GET    | `/profile`  | Retrieves user profile       |
+| GET    | `/profile/:id`  | Retrieves user profile       |
 
 ### **POST /register**
 
@@ -46,7 +46,7 @@ Registers a new user with the following required fields: `username`, `password`,
 
 ### **POST /signin**
 
-Registers a new user with the following required fields: `username`, `password`, and `email`.
+Authenticate a user with their credentials
 
 - **Request Body:**
 
@@ -60,7 +60,7 @@ Registers a new user with the following required fields: `username`, `password`,
 
 ### **GET /profile/:id**
 
-Registers a new user with the following required fields: `username`, `password`, and `email`.
+Retrives a user with the given id.
 
 - **Headers:**
 
@@ -100,7 +100,7 @@ curl -X POST http://localhost:3000/register \
 
 ### **1. Testing the `POST /signin` endpoint:**
 
-To register a new user, use the following `curl` command:
+To sign in a user, use the following `curl` command:
 
 ```bash
 curl -X POST http://localhost:3000/signin \
@@ -119,7 +119,7 @@ curl -X POST http://localhost:3000/signin \
 
 ### **1. Testing the `POST /profile/:id` endpoint:**
 
-To register a new user, use the following `curl` command:
+To retrieve a specific user, use the following `curl` command:
 
 ```bash
 -H "Authorization: Bearer <token>"
