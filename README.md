@@ -60,7 +60,7 @@ Authenticate a user with their credentials
 
 ### **GET /profile/:id**
 
-Retrives a user with the given id.
+Retrieves a user with the given id.
 
 - **Headers:**
 
